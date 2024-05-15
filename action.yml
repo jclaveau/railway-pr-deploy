@@ -39,4 +39,4 @@ outputs:
     description: "The domain of the deployed PR environment"
 runs:
   using: "node16"
-  main: "dist/index.js"
+  main: "index.js"
