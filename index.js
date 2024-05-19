@@ -456,6 +456,8 @@ async function run() {
       serviceInstances = createdEnvironment.environmentCreate.serviceInstances
     }
 
+    console.log(`serviceInstances:`, JSON.stringify(serviceInstances, null, 2))
+
     // Generate PR env token
     const projectEnvironmentToken = await refreshProjectEnvironmentToken(environment)
     core.setOutput(`pr_project_token`, projectEnvironmentToken)
@@ -499,6 +501,7 @@ async function run() {
 
     // Redeploy the Services
     await redeployAllServices(environment, servicesToRedeploy)
+    // TODO start plugins services
   }
   catch (error) {
     console.error(`Error in API calls:`, error)
